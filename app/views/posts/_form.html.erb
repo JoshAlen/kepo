@@ -33,6 +33,11 @@
     <%= f.number_field :reportCount %>
   </div>
 
+  <div class="field">
+    <%= f.label :images %>
+    <%= f.file_field :images, multiple: true %>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>
