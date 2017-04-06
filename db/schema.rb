@@ -10,10 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170405101510) do
+ActiveRecord::Schema.define(version: 20170406030346) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "posts", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "nickname"
+    t.string   "content"
+    t.integer  "followerCount"
+    t.integer  "reportCount"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["user_id"], name: "index_posts_on_user_id", using: :btree
+  end
 
   create_table "users", force: :cascade do |t|
     t.datetime "created_at",                     null: false
@@ -26,4 +37,5 @@ ActiveRecord::Schema.define(version: 20170405101510) do
     t.index ["remember_token"], name: "index_users_on_remember_token", using: :btree
   end
 
+  add_foreign_key "posts", "users"
 end
