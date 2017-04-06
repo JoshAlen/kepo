@@ -1,24 +1,231 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+  <%= stylesheet_link_tag "application" %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tag %>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 </head>
 <body>
-  <div id="header">
-    <% if signed_in? -%>
-      <%= button_to t(".sign_out"), sign_out_path, method: :delete %>
-    <% else -%>
-      <%= link_to t(".sign_in"), sign_in_path %>
-    <% end -%>
-  </div>
 
-  <div id="flash">
-    <% flash.each do |key, value| -%>
-      <div id="flash_<%= key %>"><%=h value %></div>
-    <% end %>
-  </div>
+      <div class="page-wrap">
 
-  <%= yield %>
+      <!-- Nav -->
+      <nav id="nav">
+        <ul>
+
+          <li><a class="navbar-brand" href="#">
+            <span id="brand-icon">
+              <%= image_tag "icon.png" %>
+            </span>
+              </a></li>
+              
+              <li><br></li>
+              <li><br></li>
+            
+
+          <li><a href="index.html" data-toggle="tooltip" data-placement="left" title="Home" class="active"><span class="icon fa-home"></span></a></li>
+
+          <li><a href="gallery.html" data-toggle="tooltip" data-placement="left" title="GIFs"><span class="icon fa-camera-retro"></span></a></li>
+
+          <li><a href="generic.html" data-toggle="tooltip" data-placement="left" title="Document"><span class="icon fa-file-text-o"></span></a></li>
+            
+
+          <% if signed_in? -%>
+            <!-- logout link and icon -->
+           <li data-toggle="tooltip" data-placement="left" title="Document">
+              
+              
+             <span class="text-right"><%= link_to t(".sign_out"), sign_out_path, method: :delete %></span>
+            </li>
+
+          <% else -%>
+            <!-- sign up link and icon -->
+          <li>
+              <a href="<%= sign_up_path %>" data-toggle="tooltip" data-placement="left" title="Sign up!" >
+                <span>
+                  <i class="fa fa-user-plus" aria-hidden="true"></i>
+                </span>
+              </a>
+          </li> 
+            <!-- login link and icon -->
+          <li>
+              <a href="<%= sign_in_path %>" data-toggle="tooltip" data-placement="left" title="Sign In">
+                <span>
+                  <i class="fa fa-sign-in" aria-hidden="true"></i>
+                </span>
+              </a>
+          </li>
+
+          <% end -%>
+
+          </ul>
+        </nav>
+
+
+      <!-- Main -->
+      <section id="main">
+
+      <script src="https://maps.googleapis.com/maps/api/js"></script>
+      <!--   <script src="js/jquery.js"></script> -->
+        <script>
+              function success(position){
+                var mylat = position.coords.latitude;
+                var mylong = position.coords.longitude;
+
+                console.log("lat = " + mylat)
+                console.log("long = " + mylong)
+
+                var coords = new google.maps.LatLng(mylat, mylong);
+
+                var mapOptions = {
+                  zoom: 11,
+                  center: coords,
+                  mapTypeId: google.maps.MapTypeId.ROADMAP
+                }
+
+                var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+
+                var marker = new google.maps.Marker({map: map, position: coords});
+
+                var circle = new google.maps.Circle({map: map,
+                  radius: 10000,    
+                  fillColor: '#bc67fc'
+                });
+                circle.bindTo('center', marker, 'position');
+              }
+
+              function failure(){
+                $('body').append("<p>It didn't work, co-ordinates are not available!</p>")
+              }
+
+              x = navigator.geolocation;
+              x.getCurrentPosition(success, failure);
+
+            </script>
+
+          <div class="jumbotron" style="background-color: #bc67fc;">
+          
+              <div class="row">
+                <div class="col-sm-12">
+                <div id="map"></div>
+                <div id="lat"></div>
+                <div id="long"></div>
+                </div>
+              </div> <!-- end row -->
+           
+          </div> <!-- end jumbotron -->
+
+          <div id="flash">
+              <% flash.each do |key, value| -%>
+                <div id="flash_<%= key %>"><%=h value %></div>
+              <% end %>
+          </div>
+              <%= yield %>
+            <div class="row">
+                <div class="col-sm-12">
+                <p id="for-fun" class="text-center"><i style="font-size:24px" class="fa">&#xf103;</i></p>
+                </div>
+              </div> <!-- end row -->
+              
+
+          <!-- Gallery -->
+            <section id="galleries">
+
+              <!-- Photo Galleries -->
+                <div class="gallery">
+                  <header class="special">
+                    <h2>What's New</h2>
+                  </header>
+          <!--        <div class="content">
+                    <div class="media">
+                      <a href="images/fulls/01.jpg"><img src="images/thumbs/01.jpg" alt="" title="This right here is a caption." /></a>
+                    </div>
+                    <div class="media">
+                      <a href="images/fulls/05.jpg"><img src="images/thumbs/05.jpg" alt="" title="This right here is a caption." /></a>
+                    </div>
+                    <div class="media">
+                      <a href="images/fulls/09.jpg"><img src="images/thumbs/09.jpg" alt="" title="This right here is a caption." /></a>
+                    </div>
+                    <div class="media">
+                      <a href="images/fulls/02.jpg"><img src="images/thumbs/02.jpg" alt="" title="This right here is a caption." /></a>
+                    </div>
+                    <div class="media">
+                      <a href="images/fulls/06.jpg"><img src="images/thumbs/06.jpg" alt="" title="This right here is a caption." /></a>
+                    </div>
+                    <div class="media">
+                      <a href="images/fulls/10.jpg"><img src="images/thumbs/10.jpg" alt="" title="This right here is a caption." /></a>
+                    </div>
+                    <div class="media">
+                      <a href="images/fulls/03.jpg"><img src="images/thumbs/03.jpg" alt="" title="This right here is a caption." /></a>
+                    </div>
+                    <div class="media">
+                      <a href="images/fulls/07.jpg"><img src="images/thumbs/07.jpg" alt="" title="This right here is a caption." /></a>
+                    </div>
+                  </div> -->
+                  <footer>
+                    <a href="gallery.html" class="button big">Full Gallery</a>
+                  </footer>
+                </div>
+            </section>
+
+          <!-- Contact -->
+            <section id="contact">
+              <!-- Social -->
+                <div class="social column">
+                  <h3>About Me</h3>
+                  <p>Mus sed interdum nunc dictum rutrum scelerisque erat a parturient condimentum potenti dapibus vestibulum condimentum per tristique porta. Torquent a ut consectetur a vel ullamcorper a commodo a mattis ipsum class quam sed eros vestibulum quisque a eu nulla scelerisque a elementum vestibulum.</p>
+                  <p>Aliquet dolor ultricies sem rhoncus dolor ullamcorper pharetra dis condimentum ullamcorper rutrum vehicula id nisi vel aptent orci litora hendrerit penatibus erat ad sit. In a semper velit eleifend a viverra adipiscing a phasellus urna praesent parturient integer ultrices montes parturient suscipit posuere quis aenean. Parturient euismod ultricies commodo arcu elementum suspendisse id dictumst at ut vestibulum conubia quisque a himenaeos dictum proin dis purus integer mollis parturient eros scelerisque dis libero parturient magnis.</p>
+                  <h3>Follow Me</h3>
+
+                  <ul class="icons">
+                    <li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+                    <li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+                    <li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+                  </ul>
+                </div>
+
+              <!-- Form -->
+                <div class="column">
+                  <h3>Get in Touch</h3>
+                  <form action="#" method="post">
+                    <div class="field half first">
+                      <label for="name">Name</label>
+                      <input name="name" id="name" type="text" placeholder="Name">
+                    </div>
+                    <div class="field half">
+                      <label for="email">Email</label>
+                      <input name="email" id="email" type="email" placeholder="Email">
+                    </div>
+                    <div class="field">
+                      <label for="message">Message</label>
+                      <textarea name="message" id="message" rows="6" placeholder="Message"></textarea>
+                    </div>
+                    <ul class="actions">
+                      <li><input value="Send Message" class="button" type="submit"></li>
+                    </ul>
+                  </form>
+                </div>
+
+            </section>
+
+          <!-- Footer -->
+            <footer id="footer">
+              <div class="copyright">
+                &copy; Next Design: <a href="#">TEMPLATED</a>. Images: <a href="https://unsplash.com/">Unsplash</a>.
+              </div>
+            </footer>
+      </section>
+    </div> 
 </body>
 </html>
