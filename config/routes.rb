@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 	
-  resources :posts
+  resources :posts do
+    resources :comments
+  end
   resources :passwords, controller: "clearance/passwords", only: [:create, :new]
   resource :session, controller: "clearance/sessions", only: [:create]
 

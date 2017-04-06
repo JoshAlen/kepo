@@ -11,6 +11,8 @@ gem 'rails_12factor'
 gem 'clearance'
 gem 'figaro'
 gem 'carrierwave'
+gem 'nested_scaffold'
+
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.2'
