@@ -6,7 +6,8 @@
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tag %>
 
-
+ <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+ 
 </head>
 <body>
 
@@ -24,28 +25,22 @@
               
               <li><br></li>
               <li><br></li>
-            
 
-          <li><a href="index.html" data-toggle="tooltip" data-placement="left" title="Home" class="active"><span class="icon fa-home"></span></a></li>
+          <li><a href="<%= root_path %>" data-toggle="tooltip" data-placement="left" title="Home"><span class="icon fa-home"></span></a></li>
 
-          <li><a href="gallery.html" data-toggle="tooltip" data-placement="left" title="GIFs"><span class="icon fa-camera-retro"></span></a></li>
+          <li><a href="#" data-toggle="tooltip" data-placement="left" title="create post"><span class="icon fa fa-pencil-square icon-color"></span></a></li>
 
-          <li><a href="generic.html" data-toggle="tooltip" data-placement="left" title="Document"><span class="icon fa-file-text-o"></span></a></li>
+          <li><a href="#" data-toggle="tooltip" data-placement="left" title="Document"><span class="icon fa-file-text-o icon-color"></span></a></li>
             
 
           <% if signed_in? -%>
-            <!-- logout link and icon -->
-            <li data-toggle="tooltip" data-placement="left" title="Document">
-              
-             <span class="text-right"><%= link_to t(".sign_out"), sign_out_path, method: :delete %></span>
-            </li>
-
+  
           <% else -%>
             <!-- sign up link and icon -->
           <li>
               <a href="<%= sign_up_path %>" data-toggle="tooltip" data-placement="left" title="Sign up!" >
                 <span>
-                  <i class="fa fa-user-plus" aria-hidden="true"></i>
+                  <i class="icon fa fa-user-plus icon-color" aria-hidden="true"></i>
                 </span>
               </a>
           </li> 
@@ -53,14 +48,23 @@
           <li>
               <a href="<%= sign_in_path %>" data-toggle="tooltip" data-placement="left" title="Sign In">
                 <span>
-                  <i class="fa fa-sign-in" aria-hidden="true"></i>
+                  <i class="icon fa fa-sign-in icon-color" aria-hidden="true"></i>
                 </span>
               </a>
           </li>
 
           <% end -%>
 
+
+          <% if signed_in? -%>
+            <!-- logout link and icon -->
+            <li data-toggle="tooltip" data-placement="left" title="Document">
+              <span class="text-right"><%= link_to t(".sign_out"), sign_out_path, method: :delete %></span>
+            </li>
+          <% end -%>
           </ul>
+
+          
         </nav>
 
       <!-- Main -->
@@ -109,17 +113,24 @@
             </script>
 
           <div class="jumbotron" style="background-color: #bc67fc;">
-          
-              <div class="row">
-                <div class="col-sm-12">
-                <div id="container"></div>
+
+            
                 <div id="map"></div>
                 <div id="lat"></div>
                 <div id="long"></div>
+      
+          </div> <!-- end jumbotron -->
+          <div class="container">
+              <div class="row">
+                <div class="col-sm-12">
+                <p id="for-fun" class="text-center"><i style="font-size:24px" class="fa">&#xf103;</i></p>
                 </div>
               </div> <!-- end row -->
-           
-          </div> <!-- end jumbotron -->
+          </div>
+            <%= yield %>
+
+          <!-- Gallery -->
+            <section id="galleries">
 
             <div id="flash">
               <% flash.each do |key, value| -%>
@@ -127,16 +138,7 @@
               <% end %>
             </div>
 
-              <div class="row">
-                <div class="col-sm-12">
-                <p id="for-fun" class="text-center"><i style="font-size:24px" class="fa">&#xf103;</i></p>
-                </div>
-              </div> <!-- end row -->
-
-            <%= yield %>
-
-          <!-- Gallery -->
-            <section id="galleries">
+ 
 
               <!-- Photo Galleries -->
                 <div class="gallery">
