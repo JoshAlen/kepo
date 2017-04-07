@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170406104912) do
+ActiveRecord::Schema.define(version: 20170407031744) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,13 +26,6 @@ ActiveRecord::Schema.define(version: 20170406104912) do
     t.index ["user_id"], name: "index_comments_on_user_id", using: :btree
   end
 
-  create_table "names", force: :cascade do |t|
-    t.string   "name"
-    t.string   "haha"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "posts", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "nickname"
@@ -43,7 +36,8 @@ ActiveRecord::Schema.define(version: 20170406104912) do
     t.datetime "updated_at",                 null: false
     t.json     "images",        default: []
     t.float    "latitude"
-    t.float    "longtitude"
+    t.string   "location"
+    t.float    "longitude"
     t.index ["user_id"], name: "index_posts_on_user_id", using: :btree
   end
 

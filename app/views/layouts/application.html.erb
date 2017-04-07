@@ -76,15 +76,19 @@
       <!-- Main -->
       <section id="main">
 
-      <script src="https://maps.googleapis.com/maps/api/js"></script>
+      <!-- <script src="https://maps.googleapis.com/maps/api/js"></script> -->
+      <script async defer src="https://maps.googleapis.com/maps/api/js"></script>
       <!--   <script src="js/jquery.js"></script> -->
         <script>
               function success(position){
                 var mylat = position.coords.latitude;
                 var mylong = position.coords.longitude;
 
-                console.log("lat = " + mylat)
-                console.log("long = " + mylong)
+                // console.log("lat = " + mylat)
+                // console.log("long = " + mylong)
+
+                // document.getElementById("container").innerHTML = "Latitude: " + position.coords.latitude +
+                //                    "<br>Longitude: " + position.coords.longitude;
 
                 var coords = new google.maps.LatLng(mylat, mylong);
 
@@ -118,6 +122,7 @@
           
               <div class="row">
                 <div class="col-sm-12">
+                <div id="container"></div>
                 <div id="map"></div>
                 <div id="lat"></div>
                 <div id="long"></div>

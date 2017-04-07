@@ -1,3 +1,10 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+$(document).on "turbolinks:load", ->
+	populateHiddenFields = (position) ->
+		$("#post_latitude").attr("value", position.coords.latitude)
+		$("#post_longitude").attr("value", position.coords.longitude)
+
+	if $("#new_post") != null
+		geocoding = navigator.geolocation
+		geocoding.getCurrentPosition(populateHiddenFields)
+
+return
