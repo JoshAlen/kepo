@@ -1,5 +1,8 @@
 <p id="notice"><%= notice %></p>
 
+
+<div id="timer-container" data-date="<%= @post.created_at.next_day %>">
+</div>
 <p>
   <strong>ID:</strong>
   <%= @post.id %>
@@ -32,8 +35,14 @@
 
 <p>
   <strong>Images:</strong>
-  <% @post.images.each do |image| %>
-  	<%= image_tag image %>
+  <% if @post.images.count == 0 %>
+    <div id="no-image" data-image="none">
+      <p>No Image</p>
+    </div>
+  <% else %>
+    <% @post.images.each do |image| %>
+    	<%= image_tag image %>
+    <% end %>
   <% end %>
 </p>
 
