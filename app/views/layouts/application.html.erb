@@ -28,12 +28,12 @@
 
           <li><a href="<%= root_path %>" data-toggle="tooltip" data-placement="left" title="Home"><span class="icon fa-home"></span></a></li>
 
-          <li><a href="#" data-toggle="tooltip" data-placement="left" title="create post"><span class="icon fa fa-pencil-square icon-color"></span></a></li>
-
-          <li><a href="#" data-toggle="tooltip" data-placement="left" title="Document"><span class="icon fa-file-text-o icon-color"></span></a></li>
+          <li><a href="#" data-toggle="tooltip" data-placement="left" title="refresh page"><span class="icon fa fa-refresh icon-color"></span></a></li>
             
 
           <% if signed_in? -%>
+
+          <li><a href="#" data-toggle="tooltip" data-placement="left" title="create post"><span class="icon fa fa-pencil-square icon-color"></span></a></li>
   
           <% else -%>
             <!-- sign up link and icon -->
@@ -137,8 +137,6 @@
                 <div id="flash_<%= key %>"><%=h value %></div>
               <% end %>
             </div>
-
- 
 
               <!-- Photo Galleries -->
                 <div class="gallery">

@@ -1,22 +1,24 @@
-<div class="container">
-	<!-- Trigger the modal with a button -->
+<% if signed_in? -%>
+	<div class="container">
+		<!-- Trigger the modal with a button -->
 
-	<button id= "lalala" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
-	        <!-- Modal -->
-	<div class="modal fade" id="myModal" role="dialog">
-	<div class="modal-dialog modal-sm">
-	  <div class="modal-content">
-	    <div class="modal-header">
-	      <a class="pull-right" href="<%= posts_path %>" style="font-size: 24px">&times;</a>
-	      <h4 class="modal-title">New Post</h4>
-	    </div>
-	    <div class="modal-body">
-	         <%= render 'form', post: @post %>
-	    </div>
-	    <div class="modal-footer">
-			 <%= link_to 'Back', posts_path %>
-	    </div>
-	  </div>
+		<button id= "lalala" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
+		        <!-- Modal -->
+		<div class="modal fade" id="myModal" role="dialog">
+		<div class="modal-dialog modal-sm">
+		  <div class="modal-content">
+		    <div class="modal-header">
+		      <a class="pull-right" href="<%= posts_path %>" style="font-size: 24px">&times;</a>
+		      <h4 class="modal-title">New Post</h4>
+		    </div>
+		    <div class="modal-body">
+		         <%= render 'form', post: @post %>
+		    </div>
+		    <div class="modal-footer">
+				 <%= link_to 'Back', posts_path %>
+		    </div>
+		  </div>
+		</div>
+		</div>
 	</div>
-	</div>
-</div>
+<% end -%>
