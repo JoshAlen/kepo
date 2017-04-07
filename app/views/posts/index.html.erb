@@ -1,6 +1,5 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Posts</h1>
+<div class="container">
+  <h1>Posts</h1>
 
 <table>
   <thead>
@@ -9,7 +8,7 @@
       <th>Content</th>
       <th>Followercount</th>
       <th>Reportcount</th>
-      <th colspan="3"></th>
+
     </tr>
   </thead>
 
@@ -18,8 +17,6 @@
       <tr>
         <td><%= post.nickname %></td>
         <td><%= post.content %></td>
-        <td><%= post.followerCount %></td>
-        <td><%= post.reportCount %></td>
         <td><%= link_to 'Show', post %></td>
         <td><%= link_to 'Edit', edit_post_path(post) %></td>
         <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -31,3 +28,6 @@
 <br>
 
 <%= link_to 'New Post', new_post_path %>
+  
+</div>
+
