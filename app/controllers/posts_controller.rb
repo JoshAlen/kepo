@@ -1,3 +1,4 @@
+require 'byebug'
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
@@ -69,6 +70,6 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:user_id, :nickname, :content, :followerCount, :reportCount, images: [])
+      params.require(:post).permit(:user_id, :location, :nickname, :content, :followerCount, :reportCount, :latitude, :longitude, images: [])
     end
 end
