@@ -1,5 +1,32 @@
-<h1>New Post</h1>
+<div class="container">
+	<!-- Trigger the modal with a button -->
 
-<%= render 'form', post: @post %>
+	<button id= "lalala" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
+	        <!-- Modal -->
+	<div class="modal fade" id="myModal" role="dialog">
+	<div class="modal-dialog modal-sm">
+	  <div class="modal-content">
+	    <div class="modal-header">
+	      <a class="pull-right" href="<%= posts_path %>" style="font-size: 24px">&times;</a>
+	      <h4 class="modal-title">New Post</h4>
+	    </div>
+	    <div class="modal-body">
+	         <%= render 'form', post: @post %>
+	    </div>
+	    <div class="modal-footer">
+			 <%= link_to 'Back', posts_path %>
+	    </div>
+	  </div>
+	</div>
+	</div>
+</div>
 
-<%= link_to 'Back', posts_path %>
+<script type="text/javascript">
+
+	var runthis = function(){
+	  document.getElementById('lalala').click();
+	  console.log("click");
+	};
+	runthis();
+
+</script>

@@ -1654,6 +1654,9 @@
 	    100% {top: 0px; left: 0px;}
 	}
 				
+	.optional-text {
+		font-size: 75%;
+	}
 </style>
 
 

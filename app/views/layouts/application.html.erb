@@ -43,8 +43,7 @@
 
           <% if signed_in? -%>
             <!-- logout link and icon -->
-           <li data-toggle="tooltip" data-placement="left" title="Document">
-              
+            <li data-toggle="tooltip" data-placement="left" title="Document">
               
              <span class="text-right"><%= link_to t(".sign_out"), sign_out_path, method: :delete %></span>
             </li>
@@ -71,7 +70,6 @@
 
           </ul>
         </nav>
-
 
       <!-- Main -->
       <section id="main">
@@ -126,18 +124,19 @@
            
           </div> <!-- end jumbotron -->
 
-          <div id="flash">
+            <div id="flash">
               <% flash.each do |key, value| -%>
                 <div id="flash_<%= key %>"><%=h value %></div>
               <% end %>
-          </div>
-              <%= yield %>
-            <div class="row">
+            </div>
+
+              <div class="row">
                 <div class="col-sm-12">
                 <p id="for-fun" class="text-center"><i style="font-size:24px" class="fa">&#xf103;</i></p>
                 </div>
               </div> <!-- end row -->
-              
+
+            <%= yield %>
 
           <!-- Gallery -->
             <section id="galleries">
@@ -227,5 +226,6 @@
             </footer>
       </section>
     </div> 
+
 </body>
 </html>
