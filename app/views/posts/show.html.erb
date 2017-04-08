@@ -1,9 +1,11 @@
 <p>
 
+<% if @post.created_at.next_day != nil %>
 
+<!-- Timer -->
   <div id="timer-container" data-date="<%= @post.created_at.next_day %>">
   </div>
-
+<!-- Post created time ago -->
   <p>
     <% if @post.created_at > Time.now.beginning_of_day %>
         <%="#{time_ago_in_words(@post.created_at)} ago"%> 
@@ -45,7 +47,9 @@
     <% end %>
   </p>
 
+<% end %>
 
 </p>
+
 <%= link_to 'Edit', edit_post_path(@post) %> |
 <%= link_to 'Back', posts_path %>
