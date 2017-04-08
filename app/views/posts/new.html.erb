@@ -1,24 +1,35 @@
 <% if signed_in? -%>
-	<div class="container">
-		<!-- Trigger the modal with a button -->
 
-		<button id= "lalala" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
+		<a style= "z-index: 1000;" id= "lalala" type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myPost"></a>
+
+	<div class="container" style="z-index: 500;">
+		<!-- Trigger the modal with a button -->
 		        <!-- Modal -->
-		<div class="modal fade" id="myModal" role="dialog">
-		<div class="modal-dialog modal-sm">
-		  <div class="modal-content">
+		<div class="modal" id="myPost" role="dialog">
+		<div class="modal-dialog modal-md">
+		  <div class="modal-content" style="background-color: #ececec;">
 		    <div class="modal-header">
-		      <a class="pull-right" href="<%= posts_path %>" style="font-size: 24px">&times;</a>
+		      <a class="pull-right" href="/" style="font-size: 24px">&times;</a>
 		      <h4 class="modal-title">New Post</h4>
 		    </div>
 		    <div class="modal-body">
 		         <%= render 'form', post: @post %>
 		    </div>
 		    <div class="modal-footer">
-				 <%= link_to 'Back', posts_path %>
+
 		    </div>
 		  </div>
 		</div>
 		</div>
 	</div>
+
+	<script type="text/javascript">
+
+	  var runthis = function(){
+	    document.getElementById('lalala').click();
+	  };
+	  runthis();
+
+	</script>
+
 <% end -%>

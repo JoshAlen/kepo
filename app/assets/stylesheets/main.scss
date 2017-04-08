@@ -1,4 +1,4 @@
-		
+p		
 
 /*
 	Snapshot by TEMPLATED
@@ -1394,7 +1394,7 @@
 
 	#nav {
 		background: #0d1217;
-		z-index: 10002;
+		z-index: 499;
 		position: relative;
 		width: 4em;
 	}
@@ -1669,4 +1669,21 @@
 	#container-color {
 		padding: 0px 0px;
 		margin: 0px 0px;
+	}
+
+	.color-change {
+	 	color: #bc67fc;
+	}
+
+	.color-change:hover {
+		color: white;
+	}
+
+	.background-color-change {
+	 	background-color: #bc67fc !important;
+	 	color: white !important;
+	}
+	.background-color-change:hover {
+		background-color: white !important;
+		color: #bc67fc !important;
 	}
