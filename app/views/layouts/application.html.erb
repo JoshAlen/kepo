@@ -100,13 +100,13 @@
             
           </div>
 
-          <div class="container">
+<!--           <div class="container">
               <div class="row">
                 <div class="col-sm-12">
                 <p id="for-fun" class="text-center"><i style="font-size:24px" class="fa">&#xf103;</i></p>
                 </div>
-              </div> <!-- end row -->
-          </div>
+              </div>
+          </div> -->
             <%= yield %>
 
           <!-- Gallery -->
@@ -239,21 +239,21 @@
 
             </script>
 
-
             <script type="text/javascript">
-
 
                 $( "#initMap" ).on( "click", function() {
                   x.getCurrentPosition(success, failure);
                 });
 
                 $(" #clickme").on("click", function(){
-                  document.getElementById("initMap").click();
+                  
+                  setTimeout(function(){ 
+                    document.getElementById("initMap").click();
+  
+                  }, 150);
+               
                 });
-
             </script>
-
-
 
           <!-- Footer -->
             <footer id="footer">
@@ -261,8 +261,6 @@
                 &copy; Next Design: <a href="#">TEMPLATED</a>. Images: <a href="https://unsplash.com/">Unsplash</a>.
               </div>
             </footer>
-
-
 
       </section>
     </div> 
