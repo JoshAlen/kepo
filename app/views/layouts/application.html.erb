@@ -69,36 +69,35 @@
       <!-- Main -->
       <section id="main">
 
-        <div class="container">
-     
-            <!-- Modal -->
-              <div class="modal fade" id="myMap" role="dialog">
-                <div class="modal-dialog">
-                
-                  <!-- Modal content-->
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <button type="button" class="close" data-dismiss="modal">&times;</button>
-                      <h4 class="modal-title">Modal Header</h4>
-                    </div>
+      <!-- container for map modal -->
+      <div class="container">
+          <!-- Modal -->
+            <div class="modal fade" id="myMap" role="dialog">
+              <div class="modal-dialog">
+              
+                <!-- Modal content-->
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <a type="button" class="close" data-dismiss="modal">&times;</a>
+                    <h4 class="modal-title">Modal Header</h4>
+                  </div>
 
-                    <div class="modal-body">
-                        <div id="map"></div>
-                        <div id="lat"></div>
-                          <div id="long"></div>
-                    </div> 
+                  <div class="modal-body">
+                      <div id="map"></div>
+                      <div id="lat"></div>
+                        <div id="long"></div>
+                  </div> 
 
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-default" id="initMap">refresh map</button>
-                      <button type="button" class="btn btn-default" data-dismiss="modal">close</button>
-                    </div>
-                    
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" id="initMap">refresh map</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">close</button>
                   </div>
                   
                 </div>
+                
               </div>
-            
-          </div>
+            </div>  
+      </div>
 
 <!--           <div class="container">
               <div class="row">
@@ -106,7 +105,8 @@
                 <p id="for-fun" class="text-center"><i style="font-size:24px" class="fa">&#xf103;</i></p>
                 </div>
               </div>
-          </div> -->
+               </div> -->
+
             <%= yield %>
 
           <!-- Gallery -->
@@ -250,7 +250,7 @@
                   setTimeout(function(){ 
                     document.getElementById("initMap").click();
   
-                  }, 150);
+                  }, 126);
                
                 });
             </script>
