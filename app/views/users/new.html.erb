@@ -1,15 +1,41 @@
-<div id="clearance" class="sign-up">
-  <h2><%= t(".title") %></h2>
+      <div class="container">
+          <!-- Modal -->
+            <div class="modal fade" id="mySignup" role="dialog">
+              <div class="modal-dialog">
+              
+                <!-- Modal content-->
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <a type="button" class="close" data-dismiss="modal">&times;</a>
+                    <h4 class="modal-title">Modal Header</h4>
+                  </div>
 
-  <%= form_for @user do |form| %>
-    <%= render partial: '/users/form', object: form %>
+                  <div class="modal-body">
+                  <div id="clearance" class="sign-up">
+                      <h2><%= t(".title") %></h2>
 
-    <div class="submit-field">
-      <%= form.submit %>
-    </div>
+                        <%= form_for @user do |form| %>
+                        <%= render partial: '/users/form', object: form %>
+                                                <div class="submit-field">
+                          <%= form.submit %>
+                        </div>
 
-    <div class="other-links">
-      <%= link_to t(".sign_in"), sign_in_path %>
-    </div>
-  <% end %>
-</div>
+                        <div class="other-links">
+                          <%= link_to t(".sign_in"), sign_in_path %>
+                        </div>
+
+                      <% end %>
+                  </div>
+                  </div> 
+
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" id="initMap">refresh map</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">close</button>
+                  </div>
+                  
+                </div>
+                
+              </div>
+            </div>  
+      </div>
+

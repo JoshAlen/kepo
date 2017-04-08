@@ -12,26 +12,28 @@
   <% end %>
 
   <%= f.hidden_field :user_id, :value => current_user.id %>
-
   <%= f.hidden_field :latitude %>
   <%= f.hidden_field :longitude %>
 
-  <div class="field">
-    <%= f.label :content %>
-    <%= f.text_field :content %>
-  </div>
-
-  <div class="field">
-    <%= f.label :nickname %><span class="optional-text"> (optional)</span>
+  <div class="field half first">
+  <label for="name">Nicename <small>(optional)</small></label>
     <%= f.text_field :nickname %>
   </div>
 
-  <div class="field">
-    <%= f.label :images %><span class="optional-text"> (optional)</span>
+  <div class="field half">
+    <label for="email">Photos <small>(optional)</small></label>
     <%= f.file_field :images, multiple: true %>
+  </div>
+
+  <div class="field">
+    <label for="message">Message</label>
+    <%= f.text_area :content %>
   </div>
 
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+
+
+

@@ -7,6 +7,9 @@
   <%= csrf_meta_tag %>
 
  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<!-- <script src="https://maps.googleapis.com/maps/api/js"></script> -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAPZAGV0ZpCAmFemwHhVK4DN3czkNncpBw" async defer></script>
  
 </head>
 <body>
@@ -32,7 +35,7 @@
        
           <% if signed_in? -%>
 
-          <li><a href="#" data-toggle="tooltip" data-placement="left" title="create post"><span class="icon fa fa-pencil-square icon-color"></span></a></li>
+          <li><a href="<%= new_post_path %>" data-toggle="tooltip" data-placement="left" title="create post"><span class="icon fa fa-pencil-square icon-color"></span></a></li>
   
           <% else -%>
             <!-- sign up link and icon -->
@@ -89,8 +92,8 @@
                   </div> 
 
                   <div class="modal-footer">
-                    <button type="button" class="btn btn-default" id="initMap">refresh map</button>
-                    <button type="button" class="btn btn-default" data-dismiss="modal">close</button>
+                    <button type="button" class="button background-color-change" id="initMap">Refresh Map</button>
+                    <button type="button" class="button" data-dismiss="modal">Close</button>
                   </div>
                   
                 </div>
@@ -106,11 +109,10 @@
                 </div>
               </div>
                </div> -->
+    
+                                 <%= yield %>
+       
 
-            <%= yield %>
-
-          <!-- Gallery -->
-            <section id="galleries">
 
             <div id="flash">
               <% flash.each do |key, value| -%>
@@ -118,56 +120,21 @@
               <% end %>
             </div>
 
-              <!-- Photo Galleries -->
-                <div class="gallery">
-                  <header class="special">
-                    <h2>What's New</h2>
-                  </header>
-          <!--        <div class="content">
-                    <div class="media">
-                      <a href="images/fulls/01.jpg"><img src="images/thumbs/01.jpg" alt="" title="This right here is a caption." /></a>
-                    </div>
-                    <div class="media">
-                      <a href="images/fulls/05.jpg"><img src="images/thumbs/05.jpg" alt="" title="This right here is a caption." /></a>
-                    </div>
-                    <div class="media">
-                      <a href="images/fulls/09.jpg"><img src="images/thumbs/09.jpg" alt="" title="This right here is a caption." /></a>
-                    </div>
-                    <div class="media">
-                      <a href="images/fulls/02.jpg"><img src="images/thumbs/02.jpg" alt="" title="This right here is a caption." /></a>
-                    </div>
-                    <div class="media">
-                      <a href="images/fulls/06.jpg"><img src="images/thumbs/06.jpg" alt="" title="This right here is a caption." /></a>
-                    </div>
-                    <div class="media">
-                      <a href="images/fulls/10.jpg"><img src="images/thumbs/10.jpg" alt="" title="This right here is a caption." /></a>
-                    </div>
-                    <div class="media">
-                      <a href="images/fulls/03.jpg"><img src="images/thumbs/03.jpg" alt="" title="This right here is a caption." /></a>
-                    </div>
-                    <div class="media">
-                      <a href="images/fulls/07.jpg"><img src="images/thumbs/07.jpg" alt="" title="This right here is a caption." /></a>
-                    </div>
-                  </div> -->
-                  <footer>
-                    <a href="gallery.html" class="button big">Full Gallery</a>
-                  </footer>
-                </div>
-            </section>
+            <h2 class="text-center">What's New</h2>
 
           <!-- Contact -->
             <section id="contact">
               <!-- Social -->
                 <div class="social column">
-                  <h3>About Me</h3>
+                  <h3>About Us</h3>
                   <p>Mus sed interdum nunc dictum rutrum scelerisque erat a parturient condimentum potenti dapibus vestibulum condimentum per tristique porta. Torquent a ut consectetur a vel ullamcorper a commodo a mattis ipsum class quam sed eros vestibulum quisque a eu nulla scelerisque a elementum vestibulum.</p>
                   <p>Aliquet dolor ultricies sem rhoncus dolor ullamcorper pharetra dis condimentum ullamcorper rutrum vehicula id nisi vel aptent orci litora hendrerit penatibus erat ad sit. In a semper velit eleifend a viverra adipiscing a phasellus urna praesent parturient integer ultrices montes parturient suscipit posuere quis aenean. Parturient euismod ultricies commodo arcu elementum suspendisse id dictumst at ut vestibulum conubia quisque a himenaeos dictum proin dis purus integer mollis parturient eros scelerisque dis libero parturient magnis.</p>
-                  <h3>Follow Me</h3>
+                  <h3>Follow Us</h3>
 
                   <ul class="icons">
-                    <li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
-                    <li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-                    <li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+                    <li><a href="#" class="color-change icon fa-twitter"><span class="label">Twitter</span></a></li>
+                    <li><a href="#" class="color-change icon fa-facebook"><span class="label">Facebook</span></a></li>
+                    <li><a href="#" class="color-change icon fa-instagram"><span class="label">Instagram</span></a></li>
                   </ul>
                 </div>
 
@@ -177,7 +144,7 @@
                   <form action="#" method="post">
                     <div class="field half first">
                       <label for="name">Name</label>
-                      <input name="name" id="name" type="text" placeholder="Name">
+                      <input class="" name="name" id="name" type="text" placeholder="Name">
                     </div>
                     <div class="field half">
                       <label for="email">Email</label>
@@ -188,7 +155,7 @@
                       <textarea name="message" id="message" rows="6" placeholder="Message"></textarea>
                     </div>
                     <ul class="actions">
-                      <li><input value="Send Message" class="button" type="submit"></li>
+                      <li><input value="Send Message" class="button background-color-change" type="submit"></li>
                     </ul>
                   </form>
                 </div>
@@ -196,8 +163,7 @@
             </section>
 
 
-          <!-- <script src="https://maps.googleapis.com/maps/api/js"></script> -->
-         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAPZAGV0ZpCAmFemwHhVK4DN3czkNncpBw" async defer></script>
+
       <!--   <script src="js/jquery.js"></script> -->
         <script>
         
@@ -258,7 +224,7 @@
           <!-- Footer -->
             <footer id="footer">
               <div class="copyright">
-                &copy; Next Design: <a href="#">TEMPLATED</a>. Images: <a href="https://unsplash.com/">Unsplash</a>.
+                &copy; Kepo
               </div>
             </footer>
 
