@@ -1,34 +1,83 @@
-<div class="container">
-  <h1>Posts</h1>
+<% @posts.each do |post| %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Nickname</th>
-      <th>Content</th>
-      <th>Followercount</th>
-      <th>Reportcount</th>
+        <div class="container">
 
-    </tr>
-  </thead>
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <div class="thumbnail">
+              
+              <div class="caption">
 
-  <tbody>
-    <% @posts.each do |post| %>
-      <tr>
-        <td><%= post.nickname %></td>
-        <td><%= post.content %></td>
-        <td><%= link_to 'Show', post %></td>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
+                <span class="fa fa-hourglass-half"></span>
+                  
+                <span class="timer-container" data-date="<%= post.created_at.next_day %>">
+                </span>
+                <p>
+                  <%= post.nickname %>
+                </p>
+
+                    <% if post.images.count == 0 %>
+                      <div id="no-image" data-image="none">
+                        
+                      </div>
+                    <% else %>
+                    
+                      <% post.images.each do |image| %>
+                          
+                        <%= image_tag image %>
+                          
+                      <% end %>
+                    
+                    <% end %>
+                
+                <p>
+                  <%= post.content %>
+                </p>
+                
+                <i class="fa fa-globe" aria-hidden="true"></i>
+                <%= post.location %>
          
-        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+              <a class="pull-right btn btn-default" role="button" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                comments 
+              </a>
 
-<br>
+              <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
 
-<%= link_to 'New Post', new_post_path %>
-  
-</div>
+              <a class="pull-right btn btn-default"> Kepos </a>
+              
+              <br>
+              <br>
+
+              <div class="collapse" id="collapseExample">
+                <div class="well">
+                  ...
+                </div>
+              </div>
+
+              </div>
+            </div>
+          </div>
+        </div> <!-- end row  --> 
+      </div> <!-- end container -->
+
+<% end %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
