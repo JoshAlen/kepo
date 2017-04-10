@@ -46,13 +46,16 @@
 
                 <%= post.id %>
 
-              <button class="pull-right btn btn-default" role="button" data-toggle="collapse" href="#collapseExample<%= post.id %>" aria-expanded="false" aria-controls="collapseExample">
+              <button class="pull-right btn btn-default" role="button" data-toggle="collapse" href="#collapseExample<%= post.id %>" aria-expanded="false" aria-controls="collapseExample"><i class="fa fa-comments" aria-hidden="true"></i>
                 Replies
               </button>
 
+              <button class="pull-right btn btn-default"><i class="fa fa-thumbs-o-down" aria-hidden="true"></i> Report</button>
+
               <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
 
-              <button class="pull-right btn btn-default"> Kepos </button>
+              <button class="pull-right btn btn-default"><i class="fa fa-cloud" aria-hidden="true"></i> Kepos</button>
+
               
               <br>
               <br>
