@@ -59,14 +59,19 @@
               
               <br>
               <br>
-              
+              <br>
+        
+
               <div class="collapse" id="collapseExample<%= post.id %>">
                 <div class="well">
                   <% post.comments.each do |comment| %>
-                     <p style="font-size: 150%;"><%= comment.nickname %></p>
-                     <%= comment.content %>
-                     <%= link_to 'Destroy', [comment.post, comment], :confirm => 'Are you sure?', :method => :delete %>
+                     <p><%= comment.nickname %></p>
+                     <p style="font-size: 150%;">
+                       <%= comment.content %>
+                        <%= link_to 'Destroy', [comment.post, comment], :confirm => 'Are you sure?', :method => :delete %>
+                     </p>
                   <% end %>
+
                 </div>
               </div>
 
