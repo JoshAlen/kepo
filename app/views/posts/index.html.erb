@@ -37,7 +37,7 @@
                     
                     <% end %>
                 
-                <p>
+                <p style="font-size: 150%;">
                   <%= post.content %>
                 </p>
                 
@@ -60,7 +60,7 @@
               <div class="collapse" id="collapseExample<%= post.id %>">
                 <div class="well">
                   <% post.comments.each do |comment| %>
-                     <p><%= comment.nickname %></p>
+                     <p style="font-size: 150%;"><%= comment.nickname %></p>
                      <%= comment.content %>
                      <%= link_to 'Destroy', [comment.post, comment], :confirm => 'Are you sure?', :method => :delete %>
                   <% end %>
