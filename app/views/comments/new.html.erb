@@ -2,4 +2,38 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Back', post_comments_path(@comment.post) %>
+<% if signed_in? -%>
+
+	<a style= "z-index: 1000; visibility:hidden !important;" id= "lalala" type="button" class="" data-toggle="modal" data-target="#myPost"></a>
+
+	<div class="container" style="z-index: 500;">
+		<!-- Trigger the modal with a button -->
+		        <!-- Modal -->
+		<div class="modal" id="myPost" role="dialog">
+		<div class="modal-dialog modal-md">
+		  <div class="modal-content" style="background-color: #ececec;">
+		    <div class="modal-header">
+		      <a class="pull-right" href="/" style="font-size: 24px">&times;</a>
+		      <h4 class="modal-title color-change">HEY, KEPO SOMETHING!</h4>
+		    </div>
+		    <div class="modal-body">
+		         <%= render 'form', post: @post %>
+		    </div>
+		    <div class="modal-footer">
+
+		    </div>
+		  </div>
+		</div>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+
+	  var runthis = function(){
+	    document.getElementById('lalala').click();
+	  };
+	  runthis();
+
+	</script>
+
+<% end -%>
