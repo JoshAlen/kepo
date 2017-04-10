@@ -1,5 +1,5 @@
 <% @posts.each do |post| %>
-
+  
         <div class="container">
 
         <div class="row">
@@ -46,8 +46,8 @@
 
 
                 <%= post.id %>
-         
-              <button class="pull-right btn btn-default" role="button" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+
+              <button class="pull-right btn btn-default" role="button" data-toggle="collapse" href="#collapseExample<%= post.id %>" aria-expanded="false" aria-controls="collapseExample">
                 Replies
               </button>
 
@@ -57,8 +57,8 @@
               
               <br>
               <br>
-
-              <div class="collapse" id="collapseExample">
+              
+              <div class="collapse" id="collapseExample<%= post.id %>">
                 <div class="well">
                   <% post.comments.each do |comment| %>
                      <p><%= comment.nickname %></p>
