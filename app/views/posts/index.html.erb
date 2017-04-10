@@ -12,6 +12,13 @@
                   
                 <span class="timer-container" data-date="<%= post.created_at.next_day %>">
                 </span>
+                <span class="pull-right">
+                      <% if post.created_at > Time.now.beginning_of_day %>
+                          <%="#{time_ago_in_words(post.created_at)} ago"%> 
+                      <% else %>
+                          <%= post.created_at.strftime("%b %d, %Y") %> 
+                      <% end %>
+                </span>
                 <p>
                   <%= post.nickname %>
                 </p>
@@ -36,6 +43,9 @@
                 
                 <i class="fa fa-globe" aria-hidden="true"></i>
                 <%= post.location %>
+
+
+                <%= post.id %>
          
               <button class="pull-right btn btn-default" role="button" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
                 Replies
@@ -50,7 +60,11 @@
 
               <div class="collapse" id="collapseExample">
                 <div class="well">
-                  ...
+                  <% post.comments.each do |comment| %>
+                     <p><%= comment.nickname %></p>
+                     <%= comment.content %>
+                     <%= link_to 'Destroy', [comment.post, comment], :confirm => 'Are you sure?', :method => :delete %>
+                  <% end %>
                 </div>
               </div>
 
