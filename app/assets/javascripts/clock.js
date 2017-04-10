@@ -1,7 +1,7 @@
 $(document).on("turbolinks:load",function(){
-	date = $(".timer-container").data("date")
-	{
-		$(".timer-container").countdown({until: new Date(date)})
-	}
-})
+	$.each($(".timer-container"), function(index,domElement){
+		$(domElement).countdown({until: new Date($(domElement).data("date"))});
+	});
+	
+});
 
