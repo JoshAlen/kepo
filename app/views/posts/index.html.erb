@@ -46,24 +46,32 @@
 
                 <%= post.id %>
 
-              <button class="pull-right btn btn-default" role="button" data-toggle="collapse" href="#collapseExample<%= post.id %>" aria-expanded="false" aria-controls="collapseExample">
+              <button class="pull-right btn btn-default" role="button" data-toggle="collapse" href="#collapseExample<%= post.id %>" aria-expanded="false" aria-controls="collapseExample"><i class="fa fa-comments" aria-hidden="true"></i>
                 Replies
               </button>
 
+              <button class="pull-right btn btn-default"><i class="fa fa-thumbs-o-down" aria-hidden="true"></i> Report</button>
+
               <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
 
-              <button class="pull-right btn btn-default"> Kepos </button>
+              <button class="pull-right btn btn-default"><i class="fa fa-cloud" aria-hidden="true"></i> Kepos</button>
+
               
               <br>
               <br>
-              
+              <br>
+        
+
               <div class="collapse" id="collapseExample<%= post.id %>">
                 <div class="well">
                   <% post.comments.each do |comment| %>
-                     <p style="font-size: 150%;"><%= comment.nickname %></p>
-                     <%= comment.content %>
-                     <%= link_to 'Destroy', [comment.post, comment], :confirm => 'Are you sure?', :method => :delete %>
+                     <p><%= comment.nickname %></p>
+                     <p style="font-size: 150%;">
+                       <%= comment.content %>
+                        <%= link_to 'Destroy', [comment.post, comment], :confirm => 'Are you sure?', :method => :delete %>
+                     </p>
                   <% end %>
+
                 </div>
               </div>
 

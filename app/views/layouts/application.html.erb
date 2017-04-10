@@ -94,14 +94,6 @@
             </div>  
       </div>
 
-<!--           <div class="container">
-              <div class="row">
-                <div class="col-sm-12">
-                <p id="for-fun" class="text-center"><i style="font-size:24px" class="fa">&#xf103;</i></p>
-                </div>
-              </div>
-               </div> -->
-    
             <%= yield %>
        
             <div id="flash">
@@ -172,7 +164,7 @@
                   center: coords,
                   mapTypeId: google.maps.MapTypeId.ROADMAP
                 }
-
+                
                 var map = new google.maps.Map(document.getElementById("map"), mapOptions);
 
                 var marker = new google.maps.Marker({map: map, position: coords});
@@ -219,5 +211,11 @@
       </section>
     </div> 
 
+<!--     <script type="text/javascript">
+      
+      $('body').scrollspy({ target: '#contact' });
+
+    </script>
+ -->
 </body>
 </html>
