@@ -1,3 +1,4 @@
+
 var object = $('#unlike-<%= @post.id %>')
 	.parent()
 	.parent()
@@ -5,7 +6,8 @@ var object = $('#unlike-<%= @post.id %>')
 
 $("<%= escape_javascript render partial: 'timer', locals: { post: @post } %>")
 	.insertAfter(object)
-	.countdown({until: new Date("<%= @post.created_at.next_day %>")})
+	// .countdown({until: new Date("<%= @post.created_at.next_day %>")})
+	.countdown({until: new Date("<%= @post.created_at.next_day + (@post.get_likes.size * 10).minutes %>")})
 
 object.remove()
 
