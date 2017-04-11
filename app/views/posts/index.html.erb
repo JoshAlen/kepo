@@ -9,9 +9,7 @@
               <div class="caption important-select">
 
                 <span class="fa fa-hourglass-half"></span>
-                  
-                <span class="timer-container" data-date="<%= post.created_at.next_day %>">
-                </span>
+              <%= render partial: 'timer', locals: {post: post} %>
                 <span class="pull-right">
                       <% if post.created_at > Time.now.beginning_of_day %>
                           <%="#{time_ago_in_words(post.created_at)} ago"%> 
@@ -54,7 +52,13 @@
 
               <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
 
-              <button class="pull-right btn btn-default"><i class="fa fa-cloud" aria-hidden="true"></i> Kepos</button>
+              <button class="pull-right btn btn-default" aria-hidden="true">
+                <% if current_user.liked? post %>
+                  <%= render 'unlike_link', post: post %>
+                <% else %>
+                  <%= render 'like_link', post: post %>
+                <% end %>
+               </button>
 
               
               <br>
