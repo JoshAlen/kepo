@@ -1,89 +1,68 @@
 <% @posts.each do |post| %>
   
-        <div class="container">
-
-        <div class="row">
-          <div class="col-sm-10 col-sm-offset-1">
-            <div class="thumbnail">
-              
-              <div class="caption important-select">
-
-                <span class="fa fa-hourglass-half"></span>
-              <%= render partial: 'timer', locals: {post: post} %>
-                <span class="pull-right">
-                      <% if post.created_at > Time.now.beginning_of_day %>
-                          <%="#{time_ago_in_words(post.created_at)} ago"%> 
-                      <% else %>
-                          <%= post.created_at.strftime("%b %d, %Y") %> 
-                      <% end %>
-                </span>
-                <p>
-                  <%= post.nickname %>
-                </p>
-
-                    <% if post.images.count == 0 %>
-                      <div id="no-image" data-image="none">
-                        
-                      </div>
-                    <% else %>
-                    
-                      <% post.images.each do |image| %>
-                          
-                        <%= image_tag image %>
-                          
-                      <% end %>
-                    
-                    <% end %>
-                
-                <p style="font-size: 150%;">
-                  <%= post.content %>
-                </p>
-                
-                <i class="fa fa-globe" aria-hidden="true"></i>
-                <%= post.location %>
-
-                <%= post.id %>
-
-              <button class="pull-right btn btn-default" role="button" data-toggle="collapse" href="#collapseExample<%= post.id %>" aria-expanded="false" aria-controls="collapseExample"><i class="fa fa-comments" aria-hidden="true"></i>
-                Replies
-              </button>
-
-              <button class="pull-right btn btn-default"><i class="fa fa-thumbs-o-down" aria-hidden="true"></i> Report</button>
-
-              <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
-
-              <button class="pull-right btn btn-default" aria-hidden="true">
-                <% if current_user.liked? post %>
-                  <%= render 'unlike_link', post: post %>
-                <% else %>
-                  <%= render 'like_link', post: post %>
-                <% end %>
-               </button>
-
-              
-              <br>
-              <br>
-              <br>
-        
-
-              <div class="collapse" id="collapseExample<%= post.id %>">
-                <div class="well">
-                  <% post.comments.each do |comment| %>
-                     <p><%= comment.nickname %></p>
-                     <p style="font-size: 150%;">
-                       <%= comment.content %>
-                        <%= link_to 'Destroy', [comment.post, comment], :confirm => 'Are you sure?', :method => :delete %>
-                     </p>
-                  <% end %>
-
-                </div>
-              </div>
-
-              </div>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-10 col-sm-offset-1">
+      <div class="thumbnail">
+        <div class="caption important-select">
+          <span class="fa fa-hourglass-half"></span>
+          <%= render partial: 'timer', locals: {post: post} %>
+          </span>
+          <span class="pull-right">
+            <% if post.created_at > Time.now.beginning_of_day %>
+                <%="#{time_ago_in_words(post.created_at)} ago"%> 
+            <% else %>
+                <%= post.created_at.strftime("%b %d, %Y") %> 
+            <% end %>
+          </span>
+          <p>
+            <%= post.nickname %>
+          </p>
+          <% if post.images.count == 0 %>
+            <div id="no-image" data-image="none">
+            </div>
+          <% else %>
+            <% post.images.each do |image| %>
+              <%= image_tag image %>
+            <% end %>
+          <% end %>
+          <p style="font-size: 150%;"><%= post.content %></p>
+          <i class="fa fa-globe" aria-hidden="true"></i>
+          <%= post.location %>
+          <%= post.id %>
+          <button class="pull-right btn btn-default" role="button" data-toggle="collapse" href="#collapseExample<%= post.id %>" aria-expanded="false" aria-controls="collapseExample"><i class="fa fa-comments" aria-hidden="true"></i>
+            Replies
+          </button>
+          <button class="pull-right btn btn-default"><i class="fa fa-thumbs-o-down" aria-hidden="true"></i> Report
+          </button>
+          <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <button class="pull-right btn btn-default" aria-hidden="true">
+            <% if current_user.liked? post %>
+              <%= render 'unlike_link', post: post %>
+            <% else %>
+              <%= render 'like_link', post: post %>
+            <% end %>
+          </button>
+          <br>
+          <br>
+          <br>
+          <div class="collapse" id="collapseExample<%= post.id %>">
+            <div class="well">
+              <% post.comments.each do |comment| %>
+                 <p><%= comment.nickname %>
+                 </p>
+                 <p style="font-size: 150%;">
+                  <%= comment.content %>
+                  <%= link_to 'Destroy', [comment.post, comment], :confirm => 'Are you sure?', :method => :delete %>
+                 </p>
+              <% end %>
             </div>
           </div>
-        </div> <!-- end row  --> 
-      </div> <!-- end container -->
+        </div>
+      </div>
+    </div>
+  </div> <!-- end row  --> 
+</div> <!-- end container -->
 
 <% end %>
 
