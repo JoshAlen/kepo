@@ -1,6 +1,5 @@
 class Post < ApplicationRecord
-	acts_as_votable
-    has_many :comments
+  has_many :comments
 	belongs_to :user
 	has_many :comments
 	mount_uploaders :images, ImagesUploader

@@ -1,5 +1,4 @@
 class User < ApplicationRecord
-  acts_as_voter
   has_many :posts
   has_many :comments
   include Clearance::User

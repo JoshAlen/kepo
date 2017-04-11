@@ -1,6 +1,6 @@
 require 'byebug'
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :edit, :update, :destroy, :like, :unlike]
+  before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   # GET /posts
   # GET /posts.json
@@ -63,22 +63,7 @@ class PostsController < ApplicationController
   end
 
   def clock
-  end
 
-  def like
-    @post.liked_by current_user
-    respond_to do |format|
-      format.html {redirect_to :back}
-      format.js
-    end
-  end
-
-  def unlike
-    @post.unliked_by current_user
-    respond_to do |format|
-      format.html {redirect_to :back}
-      format.js
-    end
   end
 
   private
