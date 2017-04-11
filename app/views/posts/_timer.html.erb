@@ -1,2 +1,2 @@
-<span class="timer-container" data-date="<%= post.created_at.next_day %>">
+<span class="timer-container" data-date=" <%= post.created_at.next_day + (post.get_likes.size * 10).minutes %>">
 </span>

@@ -1,5 +1,5 @@
+// var new_date = new Date("<%= @post.created_at.next_day + 10.minutes %>")
 
-var new_date = new Date("<%= @post.created_at.next_day + 10.minutes %>")
 var object = $('#like-<%= @post.id %>')
 	.parent()
 	.parent()
@@ -7,7 +7,8 @@ var object = $('#like-<%= @post.id %>')
 
 $("<%= escape_javascript render partial: 'timer', locals: { post: @post } %>")
 	.insertAfter(object)
-	.countdown({until: new_date})
+	// .countdown({until: new_date})
+	.countdown({until: new Date("<%= @post.created_at.next_day + (@post.get_likes.size * 10).minutes %>")})
 
 object.remove()
 
