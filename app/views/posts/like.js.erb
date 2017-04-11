@@ -1,5 +1,5 @@
-<% puts @post.created_at.next_day + 10.minutes %>
-var new_date = new Date("<%= @post.created_at.next_day + 10.minutes %>")
+<%= + 10.minutes %>
+var new_date = new Date("<%= @post.created_at.next_day %>")
 var object = $('#like-<%= @post.id %>')
 	.parent()
 	.parent()
