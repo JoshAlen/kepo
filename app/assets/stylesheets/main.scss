@@ -1687,3 +1687,49 @@ p
 		background-color: white !important;
 		color: #bc67fc !important;
 	}
+
+/* Homepage Video */
+
+	* {
+		margin: 0;
+		padding: 0;
+	}
+
+	body {
+		font-family: Calibri, sans-serif;
+	}
+
+	#video-bg-elem {
+		position: fixed;
+		buttom: 0;
+		right: 0;
+		z-index: -1000;
+		min-height: 100%;
+		min-width: 100%;
+		background-color: rgba(188, 105, 252, 0.4);
+	}
+
+	.content {
+		position: absolute;
+		width: 100%;
+		min-height: 100%;
+		z-index: 2;
+		
+	}
+
+	.content h1 {
+		text-align: center;
+		font-size: 65px;
+		text-transform: uppercase;
+		font-weight: 300;
+		color: #fff;
+		padding-top: 15%;
+		margin-bottom: 10px;
+	}
+
+	.content p {
+		text-align: center;
+		font-size: 20px;
+		letter-scaping: 3px;
+		color: #aaa;
+	} -->
