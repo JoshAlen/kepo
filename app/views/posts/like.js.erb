@@ -1,0 +1,14 @@
+
+var new_date = new Date("<%= @post.created_at.next_day + 10.minutes %>")
+var object = $('#like-<%= @post.id %>')
+	.parent()
+	.parent()
+	.find('.timer-container')
+
+$("<%= escape_javascript render partial: 'timer', locals: { post: @post } %>")
+	.insertAfter(object)
+	.countdown({until: new_date})
+
+object.remove()
+
+$('#like-<%= @post.id %>').replaceWith('<%= escape_javascript render 'unlike_link', post: @post %>');
