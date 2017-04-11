@@ -1,50 +1,41 @@
-<% @posts.each do |post| %>
-  
-        <div class="container">
+<% @posts.each do |post| %>  
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-10 col-sm-offset-1">
+          <div class="thumbnail">
+            <div class="caption important-select">
+              <span class="fa fa-hourglass-half"></span>
+              <%= render partial: 'timer', locals: {post: post} %>
 
-        <div class="row">
-          <div class="col-sm-10 col-sm-offset-1">
-            <div class="thumbnail">
-              
-              <div class="caption important-select">
-
-                <span class="fa fa-hourglass-half"></span>
-                  
-                <span class="timer-container" data-date="<%= post.created_at.next_day %>">
-                </span>
-                <span class="pull-right">
-                      <% if post.created_at > Time.now.beginning_of_day %>
-                          <%="#{time_ago_in_words(post.created_at)} ago"%> 
-                      <% else %>
-                          <%= post.created_at.strftime("%b %d, %Y") %> 
-                      <% end %>
-                </span>
-                <p>
-                  <%= post.nickname %>
-                </p>
-
-                    <% if post.images.count == 0 %>
-                      <div id="no-image" data-image="none">
-                        
-                      </div>
+              <span class="pull-right">
+                    <% if post.created_at > Time.now.beginning_of_day %>
+                        <%="#{time_ago_in_words(post.created_at)} ago"%> 
                     <% else %>
-                    
-                      <% post.images.each do |image| %>
-                          
-                        <%= image_tag image %>
-                          
-                      <% end %>
-                    
+                        <%= post.created_at.strftime("%b %d, %Y") %> 
                     <% end %>
-                
-                <p style="font-size: 150%;">
-                  <%= post.content %>
-                </p>
-                
-                <i class="fa fa-globe" aria-hidden="true"></i>
-                <%= post.location %>
+              </span>
 
-                <%= post.id %>
+              <p>
+                <%= post.nickname %>
+              </p>
+
+              <% if post.images.count == 0 %>
+                <div id="no-image" data-image="none">
+                </div>
+              <% else %>
+                <% post.images.each do |image| %>
+                  <%= image_tag image %>
+                <% end %>
+              <% end %>
+              
+              <p style="font-size: 150%;">
+                <%= post.content %>
+              </p>
+              
+              <i class="fa fa-globe" aria-hidden="true"></i>
+              <%= post.location %>
+
+              <%= post.id %>
 
               <button class="pull-right btn btn-default" role="button" data-toggle="collapse" href="#collapseExample<%= post.id %>" aria-expanded="false" aria-controls="collapseExample"><i class="fa fa-comments" aria-hidden="true"></i>
                 Replies
@@ -62,11 +53,9 @@
                 <% end %>
                </button>
 
-              
               <br>
               <br>
-              <br>
-        
+              <br>    
 
               <div class="collapse" id="collapseExample<%= post.id %>">
                 <div class="well">
@@ -77,15 +66,14 @@
                         <%= link_to 'Destroy', [comment.post, comment], :confirm => 'Are you sure?', :method => :delete %>
                      </p>
                   <% end %>
-
                 </div>
               </div>
 
-              </div>
             </div>
           </div>
-        </div> <!-- end row  --> 
-      </div> <!-- end container -->
+        </div>
+      </div> <!-- end row  --> 
+    </div> <!-- end container -->
 
 <% end %>
 
