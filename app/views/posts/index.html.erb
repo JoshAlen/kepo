@@ -54,7 +54,13 @@
 
               <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
 
-              <button class="pull-right btn btn-default"><i class="fa fa-cloud" aria-hidden="true"></i> Kepos</button>
+              <button class="pull-right btn btn-default" aria-hidden="true">
+                <% if current_user.liked? post %>
+                  <%= render 'unlike_link', post: post %>
+                <% else %>
+                  <%= render 'like_link', post: post %>
+                <% end %>
+               </button>
 
               
               <br>
