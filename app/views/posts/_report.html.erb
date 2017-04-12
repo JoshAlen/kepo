@@ -1,0 +1,7 @@
+<button data-toggle="tooltip" data-placement="left" title="Report" class="btn btn-danger btn-sm" id="post-report-<%= post.id %>">
+  <%= link_to '<i class="fa fa-thumbs-o-down" aria-hidden="true" style="color:white; font-weight:bold"></i>'.html_safe, report_path(post_id: post.id), method: :post, data: { confirm: 'Report the post?' },  remote: true %>
+</button>
+
+
+      <!--        <button onclick="window.location.href='#'" class="btn btn-danger btn-sm" data-toggle="tooltip" data-placement="left" title="Report"><i class="fa fa-thumbs-o-down" aria-hidden="true"></i>
+            </button> -->
