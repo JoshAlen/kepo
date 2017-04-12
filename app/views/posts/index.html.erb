@@ -36,7 +36,7 @@
             <button class="btn btn-danger btn-md"><i class="fa fa-thumbs-o-down" aria-hidden="true"></i> Report
             </button>
 
-            <button class="btn btn-default btn-md" role="button" data-toggle="collapse" href="#collapseExample<%= post.id %>" aria-expanded="false" aria-controls="collapseExample"><i class="fa fa-comments" aria-hidden="true"></i>
+            <button class="btn btn-primary btn-md" role="button" data-toggle="collapse" href="#collapseExample<%= post.id %>" aria-expanded="false" aria-controls="collapseExample"><i class="fa fa-comments" aria-hidden="true"></i>
               Replies <span class="badge"><%= post.comments.count %></span>
             </button>
 
@@ -44,6 +44,8 @@
             </button>
 
           </div>
+
+          <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
 
           <% if current_user != nil %>
             <button class="pull-right btn btn-default" aria-hidden="true"> 
