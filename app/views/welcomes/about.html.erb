@@ -4,9 +4,9 @@
               <!-- Social -->
                 <div class="social column">
                   <h3>What's kepo?</h3>
-                  <p>This is a boredom-killing app that enable users to post opinions/anything (option to post anonymously) in a particular area (within 10-km radius)</p>
+                  <p>This is a boredom-killing app that enable users to post opinions/anything (option to post anonymously) in a particular area (within 10 km radius)</p>
                   <p>Whoever likes the post, KEPO (upvote) it. Posts that are KEPO’d a lot (highest upvote) will be prevalent to everyone within the area.</p>
-                  <p>All posts will have an expiration time, KEPO it, 10 minutes will be added to the post! So, make it fun!! =) </p>
+                  <p>All posts will have an expiration time. KEPO it, 10 minutes will be added to the post! So, make it fun!! =) </p>
                   <strong>KEPO “Knowing Every Particular Object”</strong> 
                   (n.) <i>  /kay-poh/</i>
                   <li>Definition: Curious about other people’s business or concern.</li>
@@ -18,17 +18,33 @@
                   <h3>Follow Us</h3>
 
                   <ul class="icons">
-                    <li><a href="#" class="color-change icon fa-twitter"><span class="label">Twitter</span></a></li>
-                    <li><a href="#" class="color-change icon fa-facebook"><span class="label">Facebook</span></a></li>
-                    <li><a href="#" class="color-change icon fa-instagram"><span class="label">Instagram</span></a></li>
+                    <li><a href="https://twitter.com/?lang=en" class="color-change icon fa-twitter"><span class="label">Twitter</span></a></li>
+                    <li><a href="https://www.facebook.com/" class="color-change icon fa-facebook"><span class="label">Facebook</span></a></li>
+                    <li><a href="https://www.instagram.com/?hl=en" class="color-change icon fa-instagram"><span class="label">Instagram</span></a></li>
                   </ul>
                 </div>
 
               <!-- Form -->
+
                 <div class="column">
-                    <video width="320" height=320px id="video-intro" autoplay="" loop="">
+                  
+                  <button onclick="playVid()" type="button" class="btn btn-primary">Play</button>
+                  <button onclick="pauseVid()" type="button" class="btn btn-danger">Pause</button>
+
+                    <video width="320" height=320px id="video-intro" >
                       <source src="<%= video_path('kepo_intro.mp4') %>" type="video/mp4">   
                     </video>
+                        <script> 
+                          var vid = document.getElementById("video-intro"); 
+
+                          function playVid() { 
+                              vid.play(); 
+                          } 
+
+                          function pauseVid() { 
+                              vid.pause(); 
+                          } 
+                        </script> 
                 </div>
             </section>
           </div>
