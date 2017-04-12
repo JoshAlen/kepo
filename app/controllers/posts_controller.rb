@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  before_action :require_login, only: [:show, :new, :edit, :create, :update, :destory]
   before_action :set_post, only: [:show, :edit, :update, :destroy, :like, :unlike]
 
   # GET /posts
