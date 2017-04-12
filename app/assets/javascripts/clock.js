@@ -20,7 +20,7 @@ window.setInterval(function(){
 
 function gone(index, domElement){
 	if(new Date($.now()) >= new Date($(domElement).data("date"))) {
-		$(domElement).parent().parent().hide()
+		$(domElement).parent().parent().fadeOut()
 	}
 }
 
