@@ -1696,7 +1696,7 @@ p
 	}
 
 	body {
-		font-family: Calibri, sans-serif;
+		font-family: Comic Sans, sans-serif;
 	}
 
 	#video-bg-elem {
@@ -1710,20 +1710,22 @@ p
 	}
 
 	.content {
+		font-family: 'Fredoka One', cursive;
 		position: absolute;
 		width: 100%;
 		min-height: 100%;
 		z-index: 2;
-		
+		color: #bc67fc;
 	}
 
 	.content h1 {
+		font-family: 'Fredoka One', cursive;
 		text-align: center;
-		font-size: 65px;
-		text-transform: uppercase;
-		font-weight: 300;
-		color: #fff;
-		padding-top: 15%;
+		font-size: 60px;
+		text-transform: downcase;
+		font-weight: 700;
+		color: #a06fda;
+		padding-top: -15%;
 		margin-bottom: 10px;
 	}
 
@@ -1733,6 +1735,7 @@ p
 		letter-scaping: 3px;
 		color: #aaa;
 	} 
+
 
 /* Intro Video */
 
