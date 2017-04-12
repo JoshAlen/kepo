@@ -1,0 +1,3 @@
+$('#post-report-<%= @post.id %>').bind('ajax:success', function() {
+   $('#post-<%= @post.id %>').fadeOut();
+});

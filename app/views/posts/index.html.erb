@@ -1,13 +1,12 @@
 <% @posts.each do |post| %>
   
 <div class="container">
-  <div class="row">
+  <div class="row" id="post-<%= post.id %>">
     <div class="col-sm-10 col-sm-offset-1">
       <div class="thumbnail" style="border-color: #bc67fc;">
         <div class="caption important-select">
           <span class="fa fa-hourglass-half"></span>
           <%= render partial: 'timer', locals: {post: post} %>
-          </span>
           <span class="pull-right">
 
             <% if post.created_at > Time.now.beginning_of_day %>
@@ -37,6 +36,8 @@
           
           <div class="pull-right btn-group" data-toggle="buttons">
 
+            <%= render 'report', post: post %>
+
             <button class="btn btn-primary btn-md" role="button" data-toggle="collapse" href="#collapseExample<%= post.id %>" aria-expanded="false" aria-controls="collapseExample"><i class="fa fa-comments" aria-hidden="true"></i>
               Replies <span class="badge"><%= post.comments.count %></span>
             </button>
@@ -49,13 +50,13 @@
           <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
 
           <% if current_user != nil %>
+
             <button class="pull-right btn btn-default" aria-hidden="true" style="margin-right: 5px; font-size: 14.5px; border-color: #bc67fc;"> 
               <% if current_user.liked? post %>
                 <%= render 'unlike_link', post: post %>
               <% else %>
                 <%= render 'like_link', post: post %>
               <% end %>
-            </button>
           <% end %>
 
           <br>

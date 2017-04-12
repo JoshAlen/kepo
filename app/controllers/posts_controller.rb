@@ -5,7 +5,8 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+    # @posts = Post.all
+    @posts = Post.find_by_sql("select * from posts where id not in (select post_id from reports where user_id = 1)")
   end
 
   # GET /posts/1
@@ -16,6 +17,7 @@ class PostsController < ApplicationController
   # GET /posts/new
   def new
     @post = Post.new
+    # @report = Report.new
   end
 
   # GET /posts/1/edit
@@ -78,6 +80,16 @@ class PostsController < ApplicationController
     respond_to do |format|
       format.html {redirect_to :back}
       format.js
+    end
+  end
+
+  def report
+    @report = current_user.reports.new(post_id: params[:post_id])
+    @report.save
+    @post = Post.find(params[:post_id])
+    respond_to do |format|
+      format.html {redirect_to :back}
+      format.js 
     end
   end
 
