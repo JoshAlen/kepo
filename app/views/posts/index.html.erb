@@ -45,18 +45,20 @@
 
           </div>
 
-            <button class="pull-right btn btn-default" aria-hidden="true">
+          <% if current_user != nil %>
+            <button class="pull-right btn btn-default" aria-hidden="true"> 
               <% if current_user.liked? post %>
                 <%= render 'unlike_link', post: post %>
               <% else %>
                 <%= render 'like_link', post: post %>
               <% end %>
             </button>
+          <% end %>
 
+          <br>
+          <br>
+          <br>
 
-          <br>
-          <br>
-          <br>
           <div class="collapse" id="collapseExample<%= post.id %>">
             <div class="well">
               <% post.comments.each do |comment| %>
