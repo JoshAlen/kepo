@@ -1,5 +1,4 @@
-
-<div style="width: 100%; height: 100%; background-color: black;">sfsfsf</div>
+<div id="video-bg-elem" style="background-color: black;"></div>
 
 <% if signed_in? -%>
 
@@ -8,7 +7,7 @@
 	<div class="container" style="z-index: 500;">
 		<!-- Trigger the modal with a button -->
 		        <!-- Modal -->
-		<div class="modal" id="myPost" role="dialog">
+		<div class="modal" id="myPost" role="dialog" data-backdrop="static" data-keyboard="false">
 		<div class="modal-dialog modal-md">
 		  <div class="modal-content" style="background-color: #ececec;">
 		    <div class="modal-header">
@@ -18,9 +17,9 @@
 		    <div class="modal-body">
 		         <%= render 'form', post: @post %>
 		    </div>
-		    <div class="modal-footer">
+<!-- 		    <div class="modal-footer">
 
-		    </div>
+		    </div> -->
 		  </div>
 		</div>
 		</div>
@@ -34,6 +33,8 @@
 	  runthis();
 
 	</script>
+
+
 
 <% end -%>
 
