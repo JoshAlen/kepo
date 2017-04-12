@@ -1,10 +1,6 @@
-<h1>New comment</h1>
-
-<%= render 'form' %>
-
 <% if signed_in? -%>
 
-	<a style= "z-index: 1000; visibility:hidden !important;" id= "lalala" type="button" class="" data-toggle="modal" data-target="#myPost"></a>
+	<a style= "z-index: 1000; visibility:hidden !important;" id= "lala" type="button" class="" data-toggle="modal" data-target="#myPost"></a>
 
 	<div class="container" style="z-index: 500;">
 		<!-- Trigger the modal with a button -->
@@ -13,8 +9,8 @@
 		<div class="modal-dialog modal-md">
 		  <div class="modal-content" style="background-color: #ececec;">
 		    <div class="modal-header">
-		      <a class="pull-right" href="/" style="font-size: 24px">&times;</a>
-		      <h4 class="modal-title color-change">HEY, KEPO SOMETHING!</h4>
+		      <a class="pull-right" href="/posts" style="font-size: 24px">&times;</a>
+		      <h4 class="modal-title color-change">HEY, BE NICE!</h4>
 		    </div>
 		    <div class="modal-body">
 		         <%= render 'form', post: @post %>
@@ -30,7 +26,7 @@
 	<script type="text/javascript">
 
 	  var runthis = function(){
-	    document.getElementById('lalala').click();
+	    document.getElementById('lala').click();
 	  };
 	  runthis();
 
