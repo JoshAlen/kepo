@@ -3,16 +3,21 @@
 <div class="container">
   <div class="row" id="post-<%= post.id %>">
     <div class="col-sm-10 col-sm-offset-1">
-      <div class="thumbnail">
+      <div class="thumbnail" style="border-color: #bc67fc;">
         <div class="caption important-select">
           <span class="fa fa-hourglass-half"></span>
           <%= render partial: 'timer', locals: {post: post} %>
           <span class="pull-right">
+
             <% if post.created_at > Time.now.beginning_of_day %>
                 <%="#{time_ago_in_words(post.created_at)} ago"%> 
             <% else %>
                 <%= post.created_at.strftime("%b %d, %Y") %> 
             <% end %>
+
+             <button onclick="window.location.href='#'" class="btn btn-danger btn-sm" data-toggle="tooltip" data-placement="left" title="Report"><i class="fa fa-thumbs-o-down" aria-hidden="true"></i>
+            </button>
+
           </span>
           <p>
             <%= post.nickname %>
@@ -45,6 +50,8 @@
           <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
 
           <% if current_user != nil %>
+
+            <button class="pull-right btn btn-default" aria-hidden="true" style="margin-right: 5px; font-size: 14.5px; border-color: #bc67fc;"> 
               <% if current_user.liked? post %>
                 <%= render 'unlike_link', post: post %>
               <% else %>
@@ -59,12 +66,15 @@
           <div class="collapse" id="collapseExample<%= post.id %>">
             <div class="well">
               <% post.comments.each do |comment| %>
-                 <p><%= comment.nickname %>
-                 </p>
-                 <p style="font-size: 150%;">
+                  <%= comment.nickname %>
+                 <p style="font-size: 120%;">
                   <%= comment.content %>
                   <%= link_to 'Destroy', [comment.post, comment], :confirm => 'Are you sure?', :method => :delete %>
-                 </p>
+                  </p>
+                  <div class="text-center">
+                      <hr class="hr-comment text-center" >
+                  </div>
+                
               <% end %>
             </div>
           </div>
