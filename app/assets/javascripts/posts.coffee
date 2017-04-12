@@ -7,4 +7,7 @@ $(document).on "turbolinks:load", ->
 		geocoding = navigator.geolocation
 		geocoding.getCurrentPosition(populateHiddenFields)
 
+	if $("#video-intro") != null
+		document.getElementById("video-intro").play()
+
 return
