@@ -25,7 +25,7 @@ class CommentsController < ApplicationController
     @comment = @post.comments.build(comment_params)
 
     if @comment.save
-      redirect_to([@comment.post, @comment], notice: 'Comment was successfully created.')
+      redirect_to '/posts', notice: 'Comment was successfully created.'
     else
       render action: 'new'
     end
@@ -43,8 +43,7 @@ class CommentsController < ApplicationController
   # DELETE posts/1/comments/1
   def destroy
     @comment.destroy
-
-    redirect_to post_comments_url(@post)
+    redirect_to '/posts'
   end
 
   private
