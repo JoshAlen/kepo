@@ -20,7 +20,7 @@
       <nav id="nav">
         <ul>
 
-          <li><a class="navbar-brand" href="#">
+          <li><a class="navbar-brand" href="<%= posts_path %>">
             <span id="brand-icon">
               <%= image_tag "icon.png" %>
             </span>
@@ -33,8 +33,8 @@
 
           <li><a id="clickme" data-toggle="modal" data-target="#myMap" data-placement="left" title="Map"><span class="icon fa-globe icon-color"></span></a></li>
 
-          <li><a href="<%= about_path %>" data-toggle="tooltip" data-placement="left" title="About"><i class="fa fa-users icon-color" aria-hidden="true"></i></li>
-       
+          <li><a href="<%= about_path %>" data-toggle="tooltip" data-placement="left" title="About us"><i class="fa fa-users icon-color" aria-hidden="true"></i></li>
+
           <% if signed_in? -%>
 
           <li><a href="<%= new_post_path %>" data-toggle="tooltip" data-placement="left" title="Create Kepo"><span class="icon fa fa-pencil-square icon-color"></span></a></li>
