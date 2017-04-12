@@ -1,4 +1,3 @@
-require 'byebug'
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy, :like, :unlike]
 
@@ -29,7 +28,7 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_to "/", notice: 'Post was successfully created.' }
+        format.html { redirect_to "/posts", notice: 'Post was successfully created.' }
         format.json { render :show, status: :created, location: @post }
       else
         format.html { render :new }
