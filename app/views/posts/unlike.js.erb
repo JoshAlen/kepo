@@ -9,6 +9,6 @@ $("<%= escape_javascript render partial: 'timer', locals: { post: @post } %>")
 	// .countdown({until: new Date("<%= @post.created_at.next_day %>")})
 	.countdown({until: new Date("<%= @post.created_at.next_day + (@post.get_likes.size * 10).minutes %>")})
 
-object.detach()
+object.detach();
 
 $('#unlike-<%= @post.id %>').replaceWith('<%= escape_javascript render 'like_link', post: @post %>');
