@@ -66,6 +66,21 @@
       <!-- Main -->
       <section id="main">
 
+            <div style="position: fixed;
+                        z-index: 10000;
+                        top: 27px;
+                        left: 75px;
+                        ">
+            <div id="flash">
+              <% flash.each do |key, value| -%>
+             
+                <div  style="background-color: #bc67fc; color: white; font-family: 'Fredoka One', cursive; opacity: 0.8;" class="alert alert-info" role="alert" id="flash_<%= key %>">Hey, <%=h value %></div>
+
+              <% end %>
+            </div>
+
+        </div>
+
       <!-- container for map modal -->
       <div class="container">
           <!-- Modal -->
@@ -97,13 +112,6 @@
       </div>
 
             <%= yield %>
-       
-            <div id="flash">
-              <% flash.each do |key, value| -%>
-                <div id="flash_<%= key %>"><%=h value %></div>
-              <% end %>
-            </div>
-
             <!-- <h2 class="text-center">What's New</h2> -->
 
       <!--   <script src="js/jquery.js"></script> -->
@@ -179,5 +187,17 @@
 
     </script>
  -->
+
+  <script type="text/javascript">
+
+     var explode = function(){
+        $(".alert-info").fadeOut();
+      };
+      setTimeout(explode, 3000);
+
+
+    </script>
+  
+
 </body>
 </html>
