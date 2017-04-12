@@ -1,3 +1,6 @@
+
+<div id="video-bg-elem" style="background-color: black;"></div>
+
 <% if signed_in? -%>
 
 	<a style= "z-index: 1000; visibility:hidden !important;" id= "lala" type="button" class="" data-toggle="modal" data-target="#myPost"></a>
@@ -5,7 +8,7 @@
 	<div class="container" style="z-index: 500;">
 		<!-- Trigger the modal with a button -->
 		        <!-- Modal -->
-		<div class="modal" id="myPost" role="dialog">
+		<div class="modal fade" id="myPost" role="dialog" data-backdrop="static" data-keyboard="false">
 		<div class="modal-dialog modal-md">
 		  <div class="modal-content" style="background-color: #ececec;">
 		    <div class="modal-header">
