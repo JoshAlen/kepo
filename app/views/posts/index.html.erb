@@ -27,7 +27,9 @@
             </div>
           <% else %>
             <% post.images.each do |image| %>
-              <%= image_tag image %>
+            
+                <%= image_tag image %>
+              
             <% end %>
           <% end %>
           <p style="font-size: 150%;"><%= post.content %></p>
