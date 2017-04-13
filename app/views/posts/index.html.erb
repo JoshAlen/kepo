@@ -35,7 +35,7 @@
           <p style="font-size: 150%;"><%= post.content %></p>
           <i class="fa fa-globe" aria-hidden="true"></i>
           <%= post.location %>
-          
+          <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
           <div class="pull-right btn-group" data-toggle="buttons">
 
             <% if current_user != nil %>
