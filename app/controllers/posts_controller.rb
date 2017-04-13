@@ -5,8 +5,11 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    # @posts = Post.all
-    @posts = Post.find_by_sql("select * from posts where id not in (select post_id from reports where user_id = 1)")
+    if current_user.nil?
+      @posts = Post.all
+    else
+      @posts = Post.find_by_sql("select * from posts where id not in (select post_id from reports where user_id = #{current_user.id})")
+    end
   end
 
   # GET /posts/1
