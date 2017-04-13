@@ -12,7 +12,8 @@
   <% end %>
 
   <%= f.hidden_field :user_id, :value => current_user.id %>
-
+  <%= f.hidden_field :latitude %>
+  <%= f.hidden_field :longitude %>
 
   <div class="field half first">
   <label for="name">Nickname <small>(optional)</small></label>
